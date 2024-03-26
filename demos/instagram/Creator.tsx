@@ -198,9 +198,6 @@ const App: React.FC = () => {
 
     const [multiple, setMultiple] = useState(false)
     const [selectedImages, setSelectedImages] = useState([])
-    const proportionHeight = (1080 * width / 1920);
-    console.log({ width, height, proportionHeight })
-
 
     return (
         <View style={styles.container}>
@@ -225,7 +222,7 @@ const App: React.FC = () => {
                             setSelectedImages(tr => [])
                             setMultiple(tr => !tr)
                         }}
-                        style={{ flex: 1, justifyContent: 'center', alignItems: 'center' ,backgroundColor: '#333', paddingHorizontal: 20, paddingVertical: 5}}>
+                        style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#333', paddingHorizontal: 20, paddingVertical: 5 }}>
                         <Text style={{ fontSize: 26, color: '#fff' }}>Multiple</Text>
                         <Icon name="layers-outline" color="#fff" size={20} />
                     </TouchableOpacity>
@@ -304,24 +301,17 @@ const App: React.FC = () => {
                                     </View>
                                 }{
 
-                                    selectedImages.find(x => x?.node?.image?.uri == item.node.image.uri) ? <Image
+
+                                    <Image
                                         key={item?.node?.image?.uri}
                                         source={{ uri: item?.node?.image?.uri }}
                                         height={140}
                                         style={[styles.image, {
                                             //marginLeft: index % 3 == 2 ? -5: 0
                                         }]}
-                                    /> : (<>
-                                        <Image
-                                            key={item?.node?.image?.uri}
-                                            source={{ uri: item?.node?.image?.uri }}
-                                            height={140}
-                                            style={[styles.image, {
-                                                //marginLeft: index % 3 == 2 ? -5: 0
-                                            }]}
-                                        />
-                                        
-                                    </>)
+                                    />
+
+
                                 }
 
                             </TouchableOpacity>
