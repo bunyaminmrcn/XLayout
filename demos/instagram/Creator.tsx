@@ -155,16 +155,21 @@ const App: React.FC = () => {
     const [initialRender, setInitialRender] = useState(true);
     const fetchPhotos = useCallback(async () => {
         setXLoadingX(true);
-
-        const res = await CameraRoll.getPhotos({
+        const opts = {
             first: 12,
             assetType: 'Photos',
-            after: lastCrsr
-        });
+            after: lastCrsr,
+            groupTypes: 'All'
+        };
+        if(lastCrsr == '') {
+            delete opts.after;
+        }
+        const res = await CameraRoll.getPhotos();
         await new Promise(resolve => setTimeout(resolve, 2000));
 
         const appendAssets = (data) => {
-            const assets = data.edges;
+            const assets = data?.edges;
+            console.log({assets })
             setLastCursor(data.page_info.end_cursor);
             lastCrsr = data.page_info.end_cursor;
             if (!data.page_info.has_next_page) {

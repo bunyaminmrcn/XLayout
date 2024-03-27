@@ -10,6 +10,7 @@ import {
   Linking,
   Platform,
   SafeAreaView,
+  TouchableOpacity,
   StyleSheet,
 } from 'react-native';
 import Permissions, {PERMISSIONS} from 'react-native-permissions';
@@ -202,14 +203,14 @@ const App: React.FC = () => {
         }}
         style={styles.list}
       />
-      {/* <TouchableOpacity activeOpacity={0.8} onLongPress={savePhoto}>
+      {<TouchableOpacity activeOpacity={0.8} onLongPress={savePhoto}>
         <Image
           source={{
             uri: 'https://fastly.picsum.photos/id/400/2440/1400.jpg?hmac=qSYbRbCQhkj1aMCy6AEHbsrcbXalaPHr6hPCPdxlO5o',
           }}
           style={styles.image}
         />
-      </TouchableOpacity> */}
+      </TouchableOpacity>}
     </SafeAreaView>
   );
 };
