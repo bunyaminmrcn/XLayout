@@ -164,7 +164,7 @@ const App: React.FC = () => {
         if(lastCrsr == '') {
             delete opts.after;
         }
-        const res = await CameraRoll.getPhotos();
+        const res = await CameraRoll.getPhotos(opts);
         await new Promise(resolve => setTimeout(resolve, 2000));
 
         const appendAssets = (data) => {
